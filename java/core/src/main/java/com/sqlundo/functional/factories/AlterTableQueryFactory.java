@@ -1,11 +1,11 @@
 package com.sqlundo.functional.factories;
 
-import java.util.regex.Matcher;
-
 import com.sqlundo.functional.enums.AlterType;
 import com.sqlundo.functional.exception.MalformattedQueryException;
 import com.sqlundo.functional.models.AlterTableQuery;
 import com.sqlundo.functional.models.Query;
+
+import java.util.regex.Matcher;
 
 /**
  * Factory class responsible for creating an {@link AlterTableQuery} object

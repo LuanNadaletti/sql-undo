@@ -1,12 +1,11 @@
 package reversers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Test;
-
 import com.sqlundo.functional.enums.AlterType;
 import com.sqlundo.functional.models.AlterTableQuery;
 import com.sqlundo.functional.reversers.AlterTableQueryReverser;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AlterTableQueryReverserTest {
 

@@ -1,9 +1,9 @@
 package com.sqlundo.functional.models;
 
+import com.sqlundo.functional.enums.AlterType;
+
 import java.util.Locale;
 import java.util.Map;
-
-import com.sqlundo.functional.enums.AlterType;
 
 /**
  * Represents an ALTER TABLE query, which modifies the structure of a database
@@ -37,19 +37,15 @@ public class AlterTableQuery extends Query {
      * Constructs an AlterTableQuery object with the provided statement, table name,
      * operator, column name, and data type.
      *
-     * @param statement      The original statement of the ALTER TABLE query.
-     * @param table          The name of the table being altered.
-     * @param operator       The operator of the ALTER TABLE query (e.g., ADD,
-     *                       DROP).
-     * @param target         The name of the target on table being modified.
-     * @param dataType       The data type of the column (optional).
-     * @param columnType     A flag indicating if the target is a column (true) or
-     *                       not (false).
-     * @param constraintType A flag indicating if the target is a constraint (true)
-     *                       or not (false).
+     * @param statement The original statement of the ALTER TABLE query.
+     * @param table     The name of the table being altered.
+     * @param operator  The operator of the ALTER TABLE query (e.g., ADD,
+     *                  DROP).
+     * @param target    The name of the target on table being modified.
+     * @param dataType  The data type of the column (optional).
      */
     public AlterTableQuery(String statement, String table, String operator, String target, String dataType,
-            AlterType alterType) {
+                           AlterType alterType) {
         super(statement, table);
         this.operator = operator;
         this.target = target;
@@ -71,13 +67,13 @@ public class AlterTableQuery extends Query {
      * Gets the column definition clause based on the column and constraint types.
      *
      * @return The column definition clause ("COLUMN" or "CONSTRAINT") based on the
-     *         types. Returns null if neither columnType nor constraintType is true.
+     * types. Returns null if neither columnType nor constraintType is true.
      */
     public String getColumnDefinitionClause() {
         return switch (alterType) {
-        case COLUMN -> "COLUMN";
-        case CONSTRAINT -> "CONSTRAINT";
-        case NONE -> "";
+            case COLUMN -> "COLUMN";
+            case CONSTRAINT -> "CONSTRAINT";
+            case NONE -> "";
         };
     }
 

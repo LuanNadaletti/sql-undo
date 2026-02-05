@@ -1,5 +1,5 @@
-import { useState } from "preact/hooks";
-import { revertScript } from "../../api/sqlUndoApi";
+import {useState} from "preact/hooks";
+import {revertScript} from "../../api/sqlUndoApi";
 import DatabaseSelect from "../../components/DatabaseSelect";
 import SQLHoverEditor from "../../components/SQLHoverEditor";
 import UserInputEditor from "../../components/UserInputEditor";
@@ -13,7 +13,7 @@ export default function Main() {
 
     const handleRevertScript = async () => {
         try {
-            const script: Script = { script: scriptText };
+            const script: Script = {script: scriptText};
             const result = await revertScript(script);
             setQueries(result);
             setRevertError("");
@@ -31,20 +31,20 @@ export default function Main() {
             <div className="flex flex-col lg:flex-row items-center lg:space-x-6 space-y-4 lg:space-y-0">
                 <section className="flex-1">
                     <h2 className="text-lg font-semibold mb-2">Enter SQL Script</h2>
-                    <UserInputEditor value={scriptText} onChange={setScriptText} />
+                    <UserInputEditor value={ scriptText } onChange={ setScriptText } />
                 </section>
 
                 <section className="flex-1">
                     <h2 className="text-lg font-semibold mb-2 ml-4">SQL Output Editor</h2>
-                    <SQLHoverEditor queries={queries} />
+                    <SQLHoverEditor queries={ queries } />
                 </section>
             </div>
 
             <div className="flex flex-col lg:flex-row items-center lg:space-x-6 space-y-4 lg:space-y-0 justify-between">
-                <p className="font-bold text-red-700">{revertError}</p>
+                <p className="font-bold text-red-700">{ revertError }</p>
 
                 <button
-                    onClick={handleRevertScript}
+                    onClick={ handleRevertScript }
                     className="bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 px-6 rounded transition"
                 >
                     Revert Script

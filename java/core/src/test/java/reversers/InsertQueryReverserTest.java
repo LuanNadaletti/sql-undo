@@ -1,13 +1,12 @@
 package reversers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.sqlundo.functional.models.InsertQuery;
+import com.sqlundo.functional.reversers.InsertQueryReverser;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import org.junit.jupiter.api.Test;
-
-import com.sqlundo.functional.models.InsertQuery;
-import com.sqlundo.functional.reversers.InsertQueryReverser;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InsertQueryReverserTest {
 
