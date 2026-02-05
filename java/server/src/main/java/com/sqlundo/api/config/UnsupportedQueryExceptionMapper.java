@@ -1,7 +1,6 @@
 package com.sqlundo.api.config;
 
 import com.sqlundo.functional.exception.UnsupportedQueryException;
-
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.ext.ExceptionMapper;

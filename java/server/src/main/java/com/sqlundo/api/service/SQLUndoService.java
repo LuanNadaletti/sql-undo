@@ -1,21 +1,20 @@
 package com.sqlundo.api.service;
 
-import com.sqlundo.SQLUndoManager;
 import com.sqlundo.api.model.QueryDTO;
 import com.sqlundo.api.model.Script;
-import com.sqlundo.models.UndoResult;
-import org.springframework.stereotype.Service;
+import com.sqlundo.functional.SQLUndoManager;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Service
+@ApplicationScoped
 public class SQLUndoService {
 
     public List<QueryDTO> undo(Script script) {
-        List<UndoResult> results = SQLUndoManager.undo(script.script());
-
-        return results.stream()
-                .map(result -> new QueryDTO(result.getOriginal(), result.getReverted()))
-                .toList();
+        return SQLUndoManager.undo(script.script())
+                .stream()
+                .map(q -> new QueryDTO(q.original(), q.reverted()))
+                .collect(Collectors.toList());
     }
 }

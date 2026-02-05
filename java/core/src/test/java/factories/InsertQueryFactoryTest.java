@@ -1,18 +1,14 @@
 package factories;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.Arrays;
-
-import org.junit.jupiter.api.Test;
-
 import com.sqlundo.functional.exception.MalformattedQueryException;
 import com.sqlundo.functional.factories.InsertQueryFactory;
 import com.sqlundo.functional.models.InsertQuery;
 import com.sqlundo.functional.models.Query;
+import org.junit.jupiter.api.Test;
+
+import java.util.Arrays;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *

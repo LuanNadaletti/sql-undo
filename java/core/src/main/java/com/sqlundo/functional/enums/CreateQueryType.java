@@ -1,7 +1,7 @@
 package com.sqlundo.functional.enums;
 
 /**
- * Enumeration representing the types of create queries. Currently supports
+ * Enumeration representing the types of create queries. Currently, supports
  * TABLE, SEQUENCE and EXCEPTION types.
  */
 public enum CreateQueryType {
@@ -14,10 +14,6 @@ public enum CreateQueryType {
 
     CreateQueryType(String keyWord) {
         this.keyWord = keyWord;
-    }
-
-    public String getKeyWord() {
-        return keyWord;
     }
 
     /**
@@ -38,6 +34,10 @@ public enum CreateQueryType {
             return EXCEPTION;
         }
         return null;
+    }
+
+    public String getKeyWord() {
+        return keyWord;
     }
 
 }

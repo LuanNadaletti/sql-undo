@@ -1,12 +1,11 @@
 package reversers;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Test;
-
 import com.sqlundo.functional.enums.CreateQueryType;
 import com.sqlundo.functional.models.CreateQuery;
 import com.sqlundo.functional.reversers.CreateQueryReverser;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CreateQueryReverserTest {
 

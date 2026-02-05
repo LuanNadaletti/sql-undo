@@ -1,7 +1,5 @@
 package com.sqlundo.functional.enums;
 
-import java.util.function.Supplier;
-
 import com.sqlundo.functional.models.AlterTableQuery;
 import com.sqlundo.functional.models.CreateQuery;
 import com.sqlundo.functional.models.InsertQuery;
@@ -10,6 +8,8 @@ import com.sqlundo.functional.reversers.AlterTableQueryReverser;
 import com.sqlundo.functional.reversers.CreateQueryReverser;
 import com.sqlundo.functional.reversers.InsertQueryReverser;
 import com.sqlundo.functional.reversers.QueryReverser;
+
+import java.util.function.Supplier;
 
 /**
  * The {@code QueryReverserType} enum represents different types of query
@@ -48,17 +48,13 @@ public enum QueryReverserType {
         this.reverserSupplier = reverserSupplier;
     }
 
-    public QueryReverser getReverserInstance() {
-        return reverserSupplier.get();
-    }
-
     /**
      * Determines the {@code QueryReverserType} based on the given {@link Query}
      * object.
      *
      * @param query The query object.
      * @return The query reverser type associated with the query, or {@code null} if
-     *         no match is found.
+     * no match is found.
      */
     public static QueryReverserType fromQuery(Query query) {
         if (query instanceof InsertQuery) {
@@ -72,6 +68,10 @@ public enum QueryReverserType {
         }
 
         return null;
+    }
+
+    public QueryReverser getReverserInstance() {
+        return reverserSupplier.get();
     }
 
 }

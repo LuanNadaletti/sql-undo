@@ -1,20 +1,20 @@
 package com.sqlundo.functional.enums;
 
-import java.util.Locale;
-import java.util.function.Supplier;
-
 import com.sqlundo.functional.factories.AlterTableQueryFactory;
 import com.sqlundo.functional.factories.BaseQueryFactory;
 import com.sqlundo.functional.factories.CreateQueryFactory;
 import com.sqlundo.functional.factories.InsertQueryFactory;
 
+import java.util.Locale;
+import java.util.function.Supplier;
+
 /**
  * The {@code QueryType} enum represents different types of SQL queries. Each
- * query type is associated with a corresponding {@link QueryFactory}
+ * query type is associated with a corresponding {@link BaseQueryFactory}
  * implementation that can create query objects of that type.
  *
  * <p>
- * This enum provides methods to retrieve the appropriate {@link QueryFactory}
+ * This enum provides methods to retrieve the appropriate {@link BaseQueryFactory}
  * for each query type, and to determine the query type based on a given SQL
  * statement.
  * </p>
@@ -43,7 +43,7 @@ import com.sqlundo.functional.factories.InsertQueryFactory;
  * </p>
  *
  * @author Luan Nadaletti
- * @see QueryFactory
+ * @see BaseQueryFactory
  */
 public enum QueryType {
     CREATE(CreateQueryFactory::new),
@@ -57,16 +57,12 @@ public enum QueryType {
         this.factorySupplier = factorySupplier;
     }
 
-    public BaseQueryFactory getFactoryInstance() {
-        return factorySupplier.get();
-    }
-
     /**
      * Determines the {@code QueryType} based on the given SQL statement.
      *
      * @param statement The SQL statement.
      * @return The query type associated with the statement, or {@code null} if no
-     *         match is found.
+     * match is found.
      */
     public static QueryType fromStatement(String statement) {
         String statementTrimToLowerCase = statement.trim().toLowerCase(Locale.ROOT);
@@ -85,6 +81,10 @@ public enum QueryType {
         }
 
         return null;
+    }
+
+    public BaseQueryFactory getFactoryInstance() {
+        return factorySupplier.get();
     }
 
 }

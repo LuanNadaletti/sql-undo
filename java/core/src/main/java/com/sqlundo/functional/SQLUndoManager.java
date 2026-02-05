@@ -1,14 +1,14 @@
 package com.sqlundo.functional;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.sqlundo.functional.dto.RevertedQuery;
 import com.sqlundo.functional.enums.QueryReverserType;
 import com.sqlundo.functional.exception.UnsupportedQueryException;
 import com.sqlundo.functional.models.Query;
 import com.sqlundo.functional.parsers.QueryParser;
 import com.sqlundo.functional.reversers.QueryReverser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQLUndoManager {
 
@@ -25,7 +25,6 @@ public class SQLUndoManager {
      * Parses the provided script and returns a list of queries.
      *
      * @param script The script to be parsed.
-     *
      * @return A list of queries extracted from the script.
      */
     private static List<Query> parseQueries(String script) {
@@ -38,7 +37,6 @@ public class SQLUndoManager {
      * in the console.
      *
      * @param query The query to be reversed.
-     *
      * @throws IllegalArgumentException      If the query cannot be reversed.
      * @throws UnsupportedOperationException If the query reversal is not supported.
      */

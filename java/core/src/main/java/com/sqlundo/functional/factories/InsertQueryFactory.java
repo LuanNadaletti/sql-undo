@@ -1,13 +1,13 @@
 package com.sqlundo.functional.factories;
 
+import com.sqlundo.functional.exception.MalformattedQueryException;
+import com.sqlundo.functional.models.InsertQuery;
+import com.sqlundo.functional.models.Query;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
-
-import com.sqlundo.functional.exception.MalformattedQueryException;
-import com.sqlundo.functional.models.InsertQuery;
-import com.sqlundo.functional.models.Query;
 
 /**
  * Factory class responsible for creating an {@link InsertQuery} object based on
@@ -43,7 +43,7 @@ public class InsertQueryFactory extends BaseQueryFactory {
      * @param statement The INSERT statement to create the query from.
      * @return An {@link InsertQuery} object representing the parsed query.
      * @throws MalformattedQueryException If the statement is invalid and cannot
-     *                                  be parsed.
+     *                                    be parsed.
      */
     @Override
     public Query createQuery(String statement) {
@@ -76,7 +76,7 @@ public class InsertQueryFactory extends BaseQueryFactory {
             }
         }
 
-        if (current.length() > 0) {
+        if (!current.isEmpty()) {
             result.add(current.toString().trim());
         }
 

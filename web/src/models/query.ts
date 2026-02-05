@@ -1,4 +1,4 @@
 export default interface Query {
-	original: string;
-	reverted: string;
+    original: string;
+    reverted: string;
 }

@@ -1,10 +1,10 @@
 package com.sqlundo.functional.factories;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import com.sqlundo.functional.exception.MalformattedQueryException;
 import com.sqlundo.functional.models.Query;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * The QueryFactory interface provides a contract for creating Query objects

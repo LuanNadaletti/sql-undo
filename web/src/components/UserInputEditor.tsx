@@ -1,16 +1,16 @@
-import { useEffect, useRef } from "preact/hooks";
-import { EditorState } from "@codemirror/state";
-import { EditorView, keymap, lineNumbers } from "@codemirror/view";
-import { defaultKeymap } from "@codemirror/commands";
-import { sql } from "@codemirror/lang-sql";
-import { autocompletion } from "@codemirror/autocomplete";
+import {useEffect, useRef} from "preact/hooks";
+import {EditorState} from "@codemirror/state";
+import {EditorView, keymap, lineNumbers} from "@codemirror/view";
+import {defaultKeymap} from "@codemirror/commands";
+import {sql} from "@codemirror/lang-sql";
+import {autocompletion} from "@codemirror/autocomplete";
 
 interface UserInputEditorProps {
     value: string;
     onChange: (newValue: string) => void;
 }
 
-export default function UserInputEditor({ value, onChange }: UserInputEditorProps) {
+export default function UserInputEditor({value, onChange}: UserInputEditorProps) {
     const editorRef = useRef<HTMLDivElement>(null);
     const viewRef = useRef<EditorView | null>(null);
 
@@ -31,9 +31,9 @@ export default function UserInputEditor({ value, onChange }: UserInputEditorProp
                     }
                 }),
                 EditorView.theme({
-                    "&": { backgroundColor: "#1e1e1e", color: "#d4d4d4" },
-                    ".cm-content": { caretColor: "#ffffff" },
-                    "&.cm-focused .cm-cursor": { borderLeftColor: "#ffffff" },
+                    "&": {backgroundColor: "#1e1e1e", color: "#d4d4d4"},
+                    ".cm-content": {caretColor: "#ffffff"},
+                    "&.cm-focused .cm-cursor": {borderLeftColor: "#ffffff"},
                     "&.cm-focused .cm-selectionBackground, ::selection": {
                         backgroundColor: "#264f78"
                     },
@@ -42,7 +42,7 @@ export default function UserInputEditor({ value, onChange }: UserInputEditorProp
                         maxHeight: "384px",
                         scrollbarWidth: "thin"
                     },
-                    ".cm-scroller::-webkit-scrollbar": { width: "8px" },
+                    ".cm-scroller::-webkit-scrollbar": {width: "8px"},
                     ".cm-scroller::-webkit-scrollbar-thumb": {
                         backgroundColor: "#444",
                         borderRadius: "4px"
@@ -52,7 +52,7 @@ export default function UserInputEditor({ value, onChange }: UserInputEditorProp
                         color: "#999999",
                         border: "none"
                     },
-                    ".cm-gutterElement": { padding: "0 8px" }
+                    ".cm-gutterElement": {padding: "0 8px"}
                 })
             ]
         });
@@ -75,13 +75,13 @@ export default function UserInputEditor({ value, onChange }: UserInputEditorProp
         const currentDoc = editor.state.doc.toString();
         if (value !== currentDoc) {
             const transaction = editor.state.update({
-                changes: { from: 0, to: currentDoc.length, insert: value }
+                changes: {from: 0, to: currentDoc.length, insert: value}
             });
             editor.dispatch(transaction);
         }
     }, [value]);
 
     return (
-        <div ref={editorRef} className="h-96 bg-gray-800 border border-gray-700 rounded-md" />
+        <div ref={ editorRef } className="h-96 bg-gray-800 border border-gray-700 rounded-md" />
     );
 }

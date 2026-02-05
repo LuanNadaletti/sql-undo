@@ -1,14 +1,13 @@
 package factories;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import org.junit.jupiter.api.Test;
-
 import com.sqlundo.functional.enums.AlterType;
 import com.sqlundo.functional.exception.MalformattedQueryException;
 import com.sqlundo.functional.factories.AlterTableQueryFactory;
 import com.sqlundo.functional.models.AlterTableQuery;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * @author Luan Nadaletti

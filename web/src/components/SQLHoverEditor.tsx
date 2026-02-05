@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "preact/hooks";
-import { EditorState } from "@codemirror/state";
-import { EditorView, lineNumbers, Decoration } from "@codemirror/view";
-import { sql } from "@codemirror/lang-sql";
+import {useEffect, useRef, useState} from "preact/hooks";
+import {EditorState} from "@codemirror/state";
+import {Decoration, EditorView, lineNumbers} from "@codemirror/view";
+import {sql} from "@codemirror/lang-sql";
 import type Query from "../models/query";
 
 interface SQLHoverEditorProps {
@@ -10,7 +10,7 @@ interface SQLHoverEditorProps {
 
 type TooltipState = { text: string; x: number; y: number } | null;
 
-export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
+export default function SQLHoverEditor({queries}: SQLHoverEditorProps) {
     const editorHostRef = useRef<HTMLDivElement>(null);
     const viewRef = useRef<EditorView | null>(null);
 
@@ -34,7 +34,7 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
         for (const q of queries) {
             const idx = revertedScript.indexOf(q.reverted, searchFrom);
             if (idx >= 0) {
-                ranges.push({ from: idx, to: idx + q.reverted.length, original: q.original });
+                ranges.push({from: idx, to: idx + q.reverted.length, original: q.original});
                 searchFrom = idx + q.reverted.length;
             }
         }
@@ -43,7 +43,7 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
             ranges.map((r, index) =>
                 Decoration.mark({
                     attributes: {
-                        class: `query-${index} cm-decoration`,
+                        class: `query-${ index } cm-decoration`,
                         "data-original": r.original
                     }
                 }).range(r.from, r.to)
@@ -64,8 +64,8 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
                             color: "white",
                             backgroundColor: "#202124"
                         },
-                        ".cm-content": { caretColor: "#0e9" },
-                        "&.cm-focused .cm-cursor": { borderLeftColor: "#0e9" },
+                        ".cm-content": {caretColor: "#0e9"},
+                        "&.cm-focused .cm-cursor": {borderLeftColor: "#0e9"},
                         "&.cm-focused .cm-selectionBackground, ::selection": {
                             backgroundColor: "#555"
                         },
@@ -77,7 +77,7 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
                             maxHeight: "384px",
                             scrollbarWidth: "thin"
                         },
-                        ".cm-scroller::-webkit-scrollbar": { width: "8px" },
+                        ".cm-scroller::-webkit-scrollbar": {width: "8px"},
                         ".cm-scroller::-webkit-scrollbar-thumb": {
                             backgroundColor: "#444",
                             borderRadius: "4px"
@@ -87,7 +87,7 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
                             color: "#999999",
                             border: "none"
                         },
-                        ".cm-gutterElement": { padding: "0 8px" }
+                        ".cm-gutterElement": {padding: "0 8px"}
                     }),
                     EditorView.decorations.of(decorations),
                     EditorView.domEventHandlers({
@@ -120,11 +120,11 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
 
     return (
         <div className="relative w-full h-full bg-gray-900 text-gray-100 pl-4">
-            <div ref={editorHostRef} className="h-96 border border-gray-700 rounded-md" />
+            <div ref={ editorHostRef } className="h-96 border border-gray-700 rounded-md" />
 
-            {tooltip && (
+            { tooltip && (
                 <div
-                    style={{
+                    style={ {
                         position: "absolute",
                         top: tooltip.y,
                         left: tooltip.x,
@@ -136,11 +136,11 @@ export default function SQLHoverEditor({ queries }: SQLHoverEditorProps) {
                         fontSize: "12px",
                         maxWidth: "100%",
                         wordWrap: "break-word"
-                    }}
+                    } }
                 >
-                    {tooltip.text}
+                    { tooltip.text }
                 </div>
-            )}
+            ) }
         </div>
     );
 }
