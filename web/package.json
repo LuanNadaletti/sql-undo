@@ -1,0 +1,30 @@
+{
+  "name": "sql-undo-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "latest",
+    "@codemirror/commands": "latest",
+    "@codemirror/lang-sql": "latest",
+    "@codemirror/state": "latest",
+    "@codemirror/view": "latest",
+    "@tailwindcss/vite": "^4.1.18",
+    "axios": "^1.13.4",
+    "codemirror": "^6.0.2",
+    "preact": "latest"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "latest",
+    "autoprefixer": "latest",
+    "postcss": "latest",
+    "tailwindcss": "^4.1.18",
+    "typescript": "latest",
+    "vite": "latest"
+  }
+}
