@@ -1,10 +1,10 @@
 package factories;
 
-import com.sqlundo.functional.enums.CreateQueryType;
-import com.sqlundo.functional.exception.MalformattedQueryException;
-import com.sqlundo.functional.factories.CreateQueryFactory;
-import com.sqlundo.functional.models.CreateQuery;
-import com.sqlundo.functional.models.Query;
+import com.sqlundo.enums.CreateQueryType;
+import com.sqlundo.exception.MalformattedQueryException;
+import com.sqlundo.factories.CreateQueryFactory;
+import com.sqlundo.models.CreateQuery;
+import com.sqlundo.models.Query;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,12 +21,12 @@ class CreateQueryFactoryTest {
         CreateQueryFactory factory = new CreateQueryFactory();
 
         Query query = factory.createQuery(script);
-        assertTrue(query instanceof CreateQuery);
+        assertInstanceOf(CreateQuery.class, query);
 
         CreateQuery createQuery = (CreateQuery) query;
-        assertEquals(createQuery.getTable(), "table_name");
-        assertEquals(createQuery.getCreateQueryType(), CreateQueryType.TABLE);
-        assertEquals(createQuery.toString(), script);
+        assertEquals("table_name", createQuery.getTable());
+        assertEquals(CreateQueryType.TABLE, createQuery.getCreateQueryType());
+        assertEquals(script, createQuery.toString());
     }
 
     @Test
@@ -35,12 +35,12 @@ class CreateQueryFactoryTest {
         CreateQueryFactory factory = new CreateQueryFactory();
 
         Query query = factory.createQuery(script);
-        assertTrue(query instanceof CreateQuery);
+        assertInstanceOf(CreateQuery.class, query);
 
         CreateQuery createQuery = (CreateQuery) query;
-        assertEquals(createQuery.getTable(), "sequence_name");
-        assertEquals(createQuery.getCreateQueryType(), CreateQueryType.SEQUENCE);
-        assertEquals(createQuery.toString(), script);
+        assertEquals("sequence_name", createQuery.getTable());
+        assertEquals(CreateQueryType.SEQUENCE, createQuery.getCreateQueryType());
+        assertEquals(script, createQuery.toString());
     }
 
     @Test

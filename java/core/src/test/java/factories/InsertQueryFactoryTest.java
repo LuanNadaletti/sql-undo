@@ -1,12 +1,12 @@
 package factories;
 
-import com.sqlundo.functional.exception.MalformattedQueryException;
-import com.sqlundo.functional.factories.InsertQueryFactory;
-import com.sqlundo.functional.models.InsertQuery;
-import com.sqlundo.functional.models.Query;
+import com.sqlundo.exception.MalformattedQueryException;
+import com.sqlundo.factories.InsertQueryFactory;
+import com.sqlundo.models.InsertQuery;
+import com.sqlundo.models.Query;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,13 +23,13 @@ class InsertQueryFactoryTest {
         InsertQueryFactory factory = new InsertQueryFactory();
 
         Query query = factory.createQuery(script);
-        assertTrue(query instanceof InsertQuery);
+        assertInstanceOf(InsertQuery.class, query);
 
         InsertQuery insertQuery = (InsertQuery) query;
-        assertEquals(insertQuery.getTable(), "table");
-        assertIterableEquals(insertQuery.getFields(), Arrays.asList("field1"));
-        assertIterableEquals(insertQuery.getValues(), Arrays.asList("'value1'"));
-        assertEquals(insertQuery.toString(), script);
+        assertEquals("table", insertQuery.getTable());
+        assertIterableEquals(insertQuery.getFields(), List.of("field1"));
+        assertIterableEquals(insertQuery.getValues(), List.of("'value1'"));
+        assertEquals(script, insertQuery.toString());
     }
 
     @Test
@@ -38,13 +38,13 @@ class InsertQueryFactoryTest {
         InsertQueryFactory factory = new InsertQueryFactory();
 
         Query query = factory.createQuery(script);
-        assertTrue(query instanceof InsertQuery);
+        assertInstanceOf(InsertQuery.class, query);
 
         InsertQuery insertQuery = (InsertQuery) query;
-        assertEquals(insertQuery.getTable(), "table");
-        assertIterableEquals(insertQuery.getFields(), Arrays.asList("field1", "field2"));
-        assertIterableEquals(insertQuery.getValues(), Arrays.asList("'value1'", "value2"));
-        assertEquals(insertQuery.toString(), script);
+        assertEquals("table", insertQuery.getTable());
+        assertIterableEquals(insertQuery.getFields(), List.of("field1", "field2"));
+        assertIterableEquals(insertQuery.getValues(), List.of("'value1'", "value2"));
+        assertEquals(script, insertQuery.toString());
     }
 
     @Test

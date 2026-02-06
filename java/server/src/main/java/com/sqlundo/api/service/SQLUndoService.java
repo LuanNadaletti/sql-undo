@@ -1,8 +1,8 @@
 package com.sqlundo.api.service;
 
+import com.sqlundo.SQLUndoManager;
 import com.sqlundo.api.model.QueryDTO;
 import com.sqlundo.api.model.Script;
-import com.sqlundo.functional.SQLUndoManager;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;

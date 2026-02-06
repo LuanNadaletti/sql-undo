@@ -1,7 +1,7 @@
 package reversers;
 
-import com.sqlundo.functional.models.InsertQuery;
-import com.sqlundo.functional.reversers.InsertQueryReverser;
+import com.sqlundo.models.InsertQuery;
+import com.sqlundo.reversers.InsertQueryReverser;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

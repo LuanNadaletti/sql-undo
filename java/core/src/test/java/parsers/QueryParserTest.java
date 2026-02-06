@@ -1,10 +1,10 @@
 package parsers;
 
-import com.sqlundo.functional.exception.UnsupportedQueryException;
-import com.sqlundo.functional.models.CreateQuery;
-import com.sqlundo.functional.models.InsertQuery;
-import com.sqlundo.functional.models.Query;
-import com.sqlundo.functional.parsers.QueryParser;
+import com.sqlundo.exception.UnsupportedQueryException;
+import com.sqlundo.models.CreateQuery;
+import com.sqlundo.models.InsertQuery;
+import com.sqlundo.models.Query;
+import com.sqlundo.parsers.QueryParser;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

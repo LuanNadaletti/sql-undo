@@ -1,9 +1,9 @@
 package factories;
 
-import com.sqlundo.functional.enums.AlterType;
-import com.sqlundo.functional.exception.MalformattedQueryException;
-import com.sqlundo.functional.factories.AlterTableQueryFactory;
-import com.sqlundo.functional.models.AlterTableQuery;
+import com.sqlundo.enums.AlterType;
+import com.sqlundo.exception.MalformattedQueryException;
+import com.sqlundo.factories.AlterTableQueryFactory;
+import com.sqlundo.models.AlterTableQuery;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -21,7 +21,7 @@ class AlterTableQueryFactoryTest {
         AlterTableQueryFactory factory = new AlterTableQueryFactory();
         AlterTableQuery query = (AlterTableQuery) factory.createQuery(statement);
 
-        assertEquals(query.getColumnDefinitionClause(), "COLUMN",
+        assertEquals("COLUMN", query.getColumnDefinitionClause(),
                 "Expected isColumnType to be true for ADD COLUMN operation.");
         assertEquals("myTable", query.getTable(), "Table name mismatch.");
         assertEquals("ADD", query.getOperator(), "Operator mismatch.");
@@ -36,7 +36,7 @@ class AlterTableQueryFactoryTest {
         AlterTableQueryFactory factory = new AlterTableQueryFactory();
         AlterTableQuery query = (AlterTableQuery) factory.createQuery(statement);
 
-        assertEquals(query.getColumnDefinitionClause(), "COLUMN",
+        assertEquals("COLUMN", query.getColumnDefinitionClause(),
                 "Expected isColumnType to be true for DROP COLUMN operation.");
         assertEquals("myTable", query.getTable(), "Table name mismatch.");
         assertEquals("DROP", query.getOperator(), "Operator mismatch.");
@@ -50,7 +50,7 @@ class AlterTableQueryFactoryTest {
         AlterTableQueryFactory factory = new AlterTableQueryFactory();
         AlterTableQuery query = (AlterTableQuery) factory.createQuery(statement);
 
-        assertEquals(query.getColumnDefinitionClause(), "CONSTRAINT",
+        assertEquals("CONSTRAINT", query.getColumnDefinitionClause(),
                 "Expected isConstraintType to be true for ADD CONSTRAINT operation.");
         assertEquals("myTable", query.getTable(), "Table name mismatch.");
         assertEquals("ADD", query.getOperator(), "Operator mismatch.");
@@ -64,7 +64,7 @@ class AlterTableQueryFactoryTest {
         AlterTableQueryFactory factory = new AlterTableQueryFactory();
         AlterTableQuery query = (AlterTableQuery) factory.createQuery(statement);
 
-        assertEquals(query.getColumnDefinitionClause(), "CONSTRAINT",
+        assertEquals("CONSTRAINT", query.getColumnDefinitionClause(),
                 "Expected isConstraintType to be true for DROP CONSTRAINT operation.");
         assertEquals("myTable", query.getTable(), "Table name mismatch.");
         assertEquals("DROP", query.getOperator(), "Operator mismatch.");
